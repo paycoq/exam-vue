@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import ErrorView from "@/views/ErrorView.vue";
+import NotFoundPageView from "@/views/NotFoundPageView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,6 +13,15 @@ const routes: Array<RouteRecordRaw> = [
     path: "/error",
     name: "error",
     component: ErrorView,
+  },
+  {
+    path: "/page-not-found",
+    name: "invalid-path",
+    component: NotFoundPageView,
+  },
+  {
+    path: "/:catchAll(.*)",
+    redirect: "/page-not-found",
   },
   {
     path: "/about",
